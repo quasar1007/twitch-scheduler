@@ -9,9 +9,7 @@ packages = ["src"]
 name = "twitch-scheduler"
 version = "0.0.0"
 dependencies = [
-    "apscheduler",
     "pyyaml",
-    "httpx",
     "twitchapi"
 ]
 requires-python = ">=3.12"

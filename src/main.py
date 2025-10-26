@@ -1,3 +1,4 @@
+"""Script to auto open twitch streams"""
 import asyncio
 import os
 
@@ -13,11 +14,23 @@ with open('config.yaml', 'r') as f:
 active_streams = set()
 
 
-async def get_twitch_client():
+async def get_twitch_client() -> Twitch:
+    """
+    Gets the twitch client
+
+    Returns:
+        Twitch: the twitch client
+    """
     return await Twitch(os.getenv("TwitchClientId"), os.getenv("TwitchSecret"))
 
 
 async def main():
+    """
+    Main driver for the application
+
+    Returns:
+        None
+    """
     while True:
         twitch = await get_twitch_client()
         for streamer in config["streamers"]:
